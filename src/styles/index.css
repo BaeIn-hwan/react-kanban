@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-icons {
+  font-family: "Material Icons";
+  display: inline-block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
