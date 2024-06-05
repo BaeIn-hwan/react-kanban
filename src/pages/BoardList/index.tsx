@@ -22,14 +22,14 @@ function BoardList(props: BoardListProps) {
       cards.map(card => (
         <ListCard key={card.uuid} card={card} onRemove={onRemoveCard(card.uuid)} />
       )),
-    []
+    [cards, onRemoveCard]
   );
 
   return (
     <ListDraggable id={list.uuid} index={index} onMove={onMoveList}>
       <Div
         {...rest}
-        className="p-2 m-2 border border-gray-300 rounded-lg"
+        className="p-2 m-2 border border-gray-300 rounded-lg "
         minWidth="13rem">
         <div className="flex justify-between mb-2">
           <p className="w-32 text-sm font-bold underline line-clamp-1">{list.title}</p>

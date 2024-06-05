@@ -1,4 +1,7 @@
-import { Avatar, Div, Icon } from '@/components';
+import { Avatar, Div } from '@/components';
+import { Icon } from '../../theme/daisyui';
+
+// import { CardDraggable } from '@/components/CardDraggable';
 import { ICard } from '@/data';
 
 export type ListsCardProps = {
@@ -13,7 +16,10 @@ function ListCard(props: ListsCardProps) {
   const { avatar, name, jobTitle } = writer;
 
   return (
-    <Div className="m-2 border shadow-lg rounded-xl" width="10rem" onClick={onClick}>
+    <Div
+      className="m-2 border shadow-lg rounded-xl overflow-hidden"
+      width="10rem"
+      onClick={onClick}>
       <Div src={image} className="relative h-20">
         <Icon
           name="remove"

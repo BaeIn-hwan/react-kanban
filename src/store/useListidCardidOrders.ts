@@ -30,18 +30,28 @@ const createStore: StateCreator<Store> = set => ({
   listidCardidOrdersPrependCardid: payload =>
     set(state => {
       const cardids = state.listidCardidOrders[payload.listid];
-      return { ...state, [payload.listid]: [payload.cardid, ...cardids] };
+      return {
+        listidCardidOrders: {
+          ...state.listidCardidOrders,
+          [payload.listid]: [payload.cardid, ...cardids]
+        }
+      };
     }),
   listidCardidOrdersAppendCardid: payload =>
     set(state => {
       const cardids = state.listidCardidOrders[payload.listid];
-      return { ...state, [payload.listid]: [...cardids, payload.cardid] };
+      return {
+        listidCardidOrders: {
+          ...state.listidCardidOrders,
+          [payload.listid]: [...cardids, payload.cardid]
+        }
+      };
     }),
   listidCardidOrdersRemoveCardid: payload =>
     set(state => {
       const cardids = state.listidCardidOrders[payload.listid];
       return {
-        ...state,
+        ...state.listidCardidOrders,
         [payload.listid]: cardids.filter(id => id !== payload.cardid)
       };
     })

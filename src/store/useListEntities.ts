@@ -12,9 +12,7 @@ type Store = {
 const createStore: StateCreator<Store> = set => ({
   listEntities: {},
   listEntitiesAdd: payload =>
-    set(state => ({
-      listEntities: { ...state.listEntities, [payload.uuid]: payload }
-    })),
+    set(state => ({ listEntities: { ...state.listEntities, [payload.uuid]: payload } })),
   listEntitiesRemove: payload =>
     set(state => {
       const newState = { ...state.listEntities };

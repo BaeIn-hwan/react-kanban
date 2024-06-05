@@ -8,7 +8,9 @@ export const useCards = (listid: UUID) => {
   const C = useCardEntities();
   const LC = useListidCardidOrders();
 
-  const cards = LC.listidCardidOrders[listid].map(uuid => C.cardEntities[uuid]);
+  const cards = LC.listidCardidOrders[listid]
+    .map(uuid => C.cardEntities[uuid])
+    .filter(item => item);
 
   const onPrependCard = useCallback(() => {
     const card = D.makeRandomCard();
@@ -25,7 +27,7 @@ export const useCards = (listid: UUID) => {
   }, [C, LC, listid]);
 
   const onRemoveCard = useCallback(
-    (uuid: UUID) => {
+    (uuid: UUID) => () => {
       C.cardEntitiesRemove(uuid);
       LC.listidCardidOrdersRemoveCardid({ listid: listid, cardid: uuid });
     },

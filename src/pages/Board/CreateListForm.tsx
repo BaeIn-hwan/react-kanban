@@ -18,7 +18,7 @@ function CreateListForm(props: CreateListFormProps) {
   const addList = useCallback(() => {
     onCreateList(D.randomUUID(), value);
     setValue(() => D.randomTitleText());
-  }, []);
+  }, [value, onCreateList]);
 
   return (
     <div className="flex p-2">
